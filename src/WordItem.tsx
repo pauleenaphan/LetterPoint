@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function WordItem({ word, wordIndex, letterColors, wordMultipliers, onLetterClick, onMultiplierClick }: Props) {
-  const letterStyle = "px-4 py-2 rounded text-lg font-mono font-bold cursor-pointer hover:opacity-80 transition-opacity"
+  const letterStyle = "px-4 py-2 rounded text-md md:text-lg font-mono font-bold cursor-pointer hover:opacity-80 transition-opacity"
   const multiplier = wordMultipliers[wordIndex] || '1x'
   const points = getWordPoints(word, letterColors, multiplier)
 
@@ -41,7 +41,7 @@ export default function WordItem({ word, wordIndex, letterColors, wordMultiplier
           </div>
         </div>
         
-        <span className="text-xl text-gray-500"> {points}</span>
+        <span className="text-lg md:text-xl text-gray-500"> {points}</span>
       </div>
     </div>
   )

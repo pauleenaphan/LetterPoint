@@ -1,9 +1,10 @@
 import { useWordState } from './useWordState'
 import { getWordPoints } from './wordCalculations'
 import WordItem from './WordItem'
+import ConfirmationModal from './ConfirmationModal'
 
 export default function WordDisplay() {
-  const { word, setWord, wordHistory, letterColors, wordMultipliers, addWord, clearAll, toggleLetterColor, toggleWordMultiplier } = useWordState()
+  const { word, setWord, wordHistory, letterColors, wordMultipliers, addWord, clearAll, showClearConfirmation, showClearModal, setShowClearModal, toggleLetterColor, toggleWordMultiplier } = useWordState()
 
   const totalPoints = wordHistory.reduce((total, [word], i) => 
     total + getWordPoints(word, letterColors, wordMultipliers[i] || '1x'), 0
@@ -57,13 +58,23 @@ export default function WordDisplay() {
           <button onClick={addWord} className="px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-600 whitespace-nowrap cursor-pointer">
             +
           </button>
-          <button onClick={clearAll} className="px-4 py-2 bg-red-700 text-white rounded hover:bg-red-600 whitespace-nowrap cursor-pointer">
+          <button onClick={showClearConfirmation} className="px-4 py-2 bg-red-700 text-white rounded hover:bg-red-600 whitespace-nowrap cursor-pointer">
             x 
           </button>
         </div>
       </div>
 
       <p className="text-center text-gray-500"> Copyright © 2025 Pauleena Phan. All rights reserved.</p>
+      
+      <ConfirmationModal
+        isOpen={showClearModal}
+        onClose={() => setShowClearModal(false)}
+        onConfirm={clearAll}
+        title="Clear Letter History"
+        description="Are you sure you want to remove all your letter history? This action cannot be undone."
+        confirmText="Clear All"
+        cancelText="Cancel"
+      />
     </div>
   )
 }

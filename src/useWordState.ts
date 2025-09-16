@@ -8,6 +8,7 @@ export const useWordState = () => {
   const [wordHistory, setWordHistory] = useState<[string, number][]>([])
   const [letterColors, setLetterColors] = useState<Record<string, LetterColor>>({})
   const [wordMultipliers, setWordMultipliers] = useState<Record<number, WordMultiplier>>({})
+  const [showClearModal, setShowClearModal] = useState(false)
 
   useEffect(() => {
     setWordHistory(getWordHistoryFromLocalStorage())
@@ -21,11 +22,16 @@ export const useWordState = () => {
     }
   }
 
+  const showClearConfirmation = () => {
+    setShowClearModal(true)
+  }
+
   const clearAll = () => {
     clearWordHistoryFromLocalStorage()
     setWordHistory([])
     setLetterColors({})
     setWordMultipliers({})
+    setShowClearModal(false)
   }
 
   const toggleLetterColor = (word: string, letterIndex: number) => {
@@ -47,6 +53,9 @@ export const useWordState = () => {
     wordMultipliers,
     addWord,
     clearAll,
+    showClearConfirmation,
+    showClearModal,
+    setShowClearModal,
     toggleLetterColor,
     toggleWordMultiplier
   }

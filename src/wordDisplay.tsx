@@ -15,13 +15,14 @@ export default function WordDisplay() {
       <p className="text-md md:text-lg text-center mb-8 text-gray-500">Insert your words, calculate the points, and see your total score</p>
 
       <div className="flex-1 w-full max-w-4xl mx-auto flex flex-col min-h-0">
-        <div className="flex justify-between items-center gap-4">
-          <h2 className="text-xl md:text-2xl font-semibold">Your Words</h2>
-          <h2 className="text-xl md:text-2xl font-semibold">Points</h2>
-        </div>
         <div className="mb-4 text-xs md:text-sm text-gray-500">
           <p> Click on the letters to change its multiplier (double or triple LETTER score)</p>
           <p> Click on the multiplier to change its multiplier (double or triple WORD score)</p>
+        </div>
+
+        <div className="flex justify-between items-center gap-4 mb-2">
+          <h2 className="text-xl md:text-2xl font-semibold">Your Words</h2>
+          <h2 className="text-xl md:text-2xl font-semibold">Points</h2>
         </div>
         
         <div className="flex-1 overflow-y-auto border-2 border-gray-300 rounded p-4 bg-gray-50 min-h-0">

@@ -31,7 +31,7 @@ export default function WordItem({ word, wordIndex, letterColors, wordMultiplier
               return (
                 <span 
                   key={i}
-                  className={`${getLetterClass(letter, color)} ${letterStyle}`}
+                  className={`${getLetterClass(color)} ${letterStyle}`}
                   onClick={letter === ' ' ? undefined : () => onLetterClick(word, i)}
                 >
                   {letter === ' ' ? '\u00A0' : letter}

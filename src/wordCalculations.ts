@@ -38,7 +38,7 @@ export const colorClasses = {
 }
 
 // Get CSS class for letter (including spaces)
-export const getLetterClass = (letter: string, color: LetterColor): string => {
+export const getLetterClass = (color: LetterColor): string => {
   return colorClasses[color]
 }
 

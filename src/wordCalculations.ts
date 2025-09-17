@@ -1,14 +1,14 @@
 import { letterPoints } from './letterPoints'
 
 export type LetterColor = 'orange' | 'lightBlue' | 'darkBlue'
-export type WordMultiplier = '1x' | '2x' | '3x'
+export type WordMultiplier = '1x' | '2x' | '3x' | '4x'
 
 // Simple color cycling
 export const nextColor = (current: LetterColor): LetterColor => 
   current === 'orange' ? 'lightBlue' : current === 'lightBlue' ? 'darkBlue' : 'orange'
 
 export const nextMultiplier = (current: WordMultiplier): WordMultiplier => 
-  current === '1x' ? '2x' : current === '2x' ? '3x' : '1x'
+  current === '1x' ? '2x' : current === '2x' ? '3x' : current === '3x' ? '4x' : '1x'
 
 // Get letter points with multiplier
 export const getLetterPoints = (letter: string, color: LetterColor): number => {
@@ -26,7 +26,7 @@ export const getWordPoints = (word: string, letterColors: Record<string, LetterC
     return total + getLetterPoints(letter, color)
   }, 0)
   
-  const multiplier = wordMultiplier === '2x' ? 2 : wordMultiplier === '3x' ? 3 : 1
+  const multiplier = wordMultiplier === '2x' ? 2 : wordMultiplier === '3x' ? 3 : wordMultiplier === '4x' ? 4 : 1
   return letterPoints * multiplier
 }
 
@@ -45,5 +45,6 @@ export const getLetterClass = (color: LetterColor): string => {
 export const multiplierClasses = {
   '1x': 'bg-gray-800 text-gray-100',
   '2x': 'bg-pink-500 text-white',
-  '3x': 'bg-red-500 text-white'
+  '3x': 'bg-red-500 text-white',
+  '4x': 'bg-purple-600 text-white'
 }

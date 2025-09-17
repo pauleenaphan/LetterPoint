@@ -4,7 +4,7 @@ import { FaTrashCan } from "react-icons/fa6"
 import { useWordState } from './useWordState'
 import { getWordPoints } from './wordCalculations'
 import WordItem from './WordItem'
-import ConfirmationModal from './confirmationModal'
+import ConfirmationModal from './ConfirmationModal'
 import TooltipModal from './tooltipModal'
 
 export default function WordDisplay() {

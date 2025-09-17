@@ -10,7 +10,7 @@ export default function TooltipModal({ isOpen, onClose }: TooltipModalProps) {
     <Dialog.Root open={isOpen} onOpenChange={onClose}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-50" />
-        <Dialog.Content className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg px-6 py-8 w-full max-w-md md:max-w-2xl z-50 max-h-[100vh] overflow-y-auto mx-auto">
+        <Dialog.Content className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg px-6 py-8 w-full max-w-md md:max-w-2xl z-50 max-h-[80vh] overflow-y-auto mx-auto">
           <Dialog.Title className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center">
             How to Use Letter Point
           </Dialog.Title>

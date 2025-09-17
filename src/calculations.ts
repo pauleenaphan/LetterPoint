@@ -6,8 +6,7 @@ export function addWordPointsToLocalStorage(word: string) {
   const points = calculateWordPoints(word)
   const existingData = localStorage.getItem('wordHistory')
   const wordHistory: [string, number][] = existingData ? JSON.parse(existingData) : []
-  
-  console.log(points)
+
   wordHistory.push([word, points])
   localStorage.setItem('wordHistory', JSON.stringify(wordHistory))
 }
